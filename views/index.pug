@@ -1,28 +1,18 @@
-doctype html
-html(lang='en')
-  head
-    title= title
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    //script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js", integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj", crossorigin="anonymous")
-    //script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js", integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV", crossorigin="anonymous")
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-      block sidebar
-        ul
-          li
-            a(href="/") Home
-          li
-            a(href="/about") About
-          li
-            a(href="/catalog/group") Group list
-          li
-            a(href="/album/group/1234") Albums for group 1234
-          li
-            a(href="/comment/5") Most recent five comments
-          li
-            a(href="/catalog/group/1234/comment/5") Most recent five comments for Group 1234
-          li
-            a(href="/catalog/album/8675309/comment/10") Most recent 10 comments for Album 8675309
+extends layout
 
-        block content
+block content
+  h1= title
+  p Select a group, an album, and see what others have had to say.
+
+  select#group-select(name="group-choice" required)
+
+  select#album-select(name="album-choice" hidden required)
+    
+  h2 Comments
+
+  section#comments
+    // The article element repeats for each comment
+    //- https://www.sitepoint.com/how-why-use-html5-custom-data-attributes/
+
+  footer
+  script(src="/javascripts/validate.js")
