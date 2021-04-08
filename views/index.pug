@@ -1,29 +1,28 @@
-extends layout
-
 doctype html
-head
-  title= Album Comment
-  meta(charset='UTF-8')
-  meta(http-equiv='X-UA-Compatible' content='IE=edge')
-  meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  link(rel='stylesheet', href='css/styles.css')
-body
-  h1 Album Comments
-  p
-  form(action='https://wocoders.com/~dave/cosc335/echo_server.php' method='POST')
-    ul
-      li(title='Enter a name (3 to 12 letters)')
-        label(for='name') Name:
-        input#name(type='text' name='name' required='' autofocus='' pattern='[A-Za-z]{3,12}' title='3 to 12 letters')
-      li
-        label(for='email-addr') Email address:
-        input#email-addr(type='email' name='email-addr' required='')
-      link
-      label(for='album') Album:
-      select#album(name='album' required='' title='Select an album')
-        option(value='')  Select&mldr;
-      li
-        label(for='comments') Comments:
-        textarea#comments(name='comments' title='Enter your comments. Keep it clean.  )' placeholder='Comments…' required='')
-      li
-        input(type='submit' value='Submit' disabled='')
+html(lang='en')
+  head
+    title= title
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    //script(src="https://code.jquery.com/jquery-3.5.1.slim.min.js", integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj", crossorigin="anonymous")
+    //script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js", integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV", crossorigin="anonymous")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+      block sidebar
+        ul
+          li
+            a(href="/") Home
+          li
+            a(href="/about") About
+          li
+            a(href="/catalog/group") Group list
+          li
+            a(href="/album/group/1234") Albums for group 1234
+          li
+            a(href="/comment/5") Most recent five comments
+          li
+            a(href="/catalog/group/1234/comment/5") Most recent five comments for Group 1234
+          li
+            a(href="/catalog/album/8675309/comment/10") Most recent 10 comments for Album 8675309
+
+        block content
